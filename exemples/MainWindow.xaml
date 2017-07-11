@@ -1,0 +1,14 @@
+﻿<Window x:Class="exemples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:exemples"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="150" Width="125">
+    <StackPanel>
+        <Button Click="Event_Handler_OnClick">Event Handler</Button>
+        <Button Click="Async_Await_OnClick">Async/Await</Button>
+        <Button Click="Converter_OnClick">Converters</Button>
+    </StackPanel>
+</Window>

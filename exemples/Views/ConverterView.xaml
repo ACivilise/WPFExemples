@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="exemples.Views.ConverterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:exemples.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary x:Uid="Converters">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Converters/ConvertersDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel>
+        <ComboBox Width="50" Height="20" SelectionChanged="ComboBox_Selected">
+            <ComboBoxItem>un</ComboBoxItem>
+            <ComboBoxItem>deux</ComboBoxItem>
+            <ComboBoxItem>trois</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Width="100" Height="20" Text="{Binding ConverterModel.Nombre,Converter={StaticResource SimpleConverter_key}}"/>
+        <ComboBox Width="100" Height="20" SelectionChanged="ComboBox2_Selected">
+            <ComboBoxItem>Visible</ComboBoxItem>
+            <ComboBoxItem>Caché</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Width="100" Height="20" Text="{Binding ConverterModel.Nombre,Converter={StaticResource SimpleConverter_key}}">
+            <TextBlock.Visibility>
+                <MultiBinding Converter="{StaticResource MultiValueConverter_key}">
+                    <Binding Path="ConverterModel.Nombre"/>
+                    <Binding Path="ConverterModel.Status"/>
+                </MultiBinding>
+            </TextBlock.Visibility>
+        </TextBlock>
+    </StackPanel>
+</UserControl>
